@@ -1,5 +1,5 @@
 \documentclass[12pt]{exam}
-\usepackage{amsmath,tikz,sagetex,draftwatermark}
+\usepackage{amsmath,tikz,sagetex}
 \usepackage[margin=2cm]{geometry}
 \usepackage[colorlinks=false]{hyperref}
 
@@ -16,19 +16,25 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %         Draft Watermark           %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\SetWatermarkText{\textsf{DRAFT}}
-%\SetWatermarkScale{10}
-
+\newcommand{\isdraft}{x}
+\newcommand{\revisionlevel}{\ifdefined\isdraft
+  \begin{tikzpicture}[remember picture,overlay]
+  \node [rotate=60,scale=12,color=red!25,opacity=0.3] at (current page.center)
+  {\textsf{DRAFT}};
+\end{tikzpicture}
+\else
+  \relax
+\fi}
 
 \begin{document}
 
 \pagestyle{headandfoot}
-\header{\course}{\examnum}{\examdate}
+\header{\course}{\examnum}{\examdate\revisionlevel}
 \firstpageheadrule
 \runningheadrule
 \firstpageheader{\large \course}{\large \examnum}{\large \examdate}
-\firstpagefooter{}{}{}
-\runningfooter{}{}{\thepage\ of \numpages}
+\firstpagefooter{\revisionlevel}{}{}
+\runningfooter{\revisionlevel}{}{\thepage\ of \numpages}
 
 
 \parindent 0ex
