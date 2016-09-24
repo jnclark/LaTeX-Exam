@@ -1,0 +1,112 @@
+\documentclass[12pt]{exam}
+\usepackage{amsmath,tikz,sagetex}
+\usepackage[margin=2cm]{geometry}
+\usepackage[colorlinks=false]{hyperref}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%      Change these variables       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\examdate}{THE DATE}
+\newcommand{\examnum}{EXAM NUM}
+\newcommand{\course}{MATH NUM}
+
+\begin{document}
+
+\pagestyle{headandfoot}
+\header{\course}{\examnum}{\examdate}
+\firstpageheadrule
+\runningheadrule
+\firstpagefooter{}{}{}
+\runningfooter{}{}{\thepage\ of \numpages}
+
+
+\parindent 0ex
+
+\begin{center}
+
+\rule[1ex]{\textwidth}{.1pt}
+
+\vspace{1cm}
+
+\begin{tabular}{ll}
+Name & \makebox[8cm]{\hrulefill} \\ \\ 
+Instructor & \makebox[8cm]{\hrulefill} \\
+\end{tabular}
+
+\vspace{1cm}
+
+\rule[1ex]{\textwidth}{.1pt}
+\vfill
+
+\addpoints
+
+\gradetable[v][questions] 
+
+\end{center}
+
+\vfill
+
+\begin{center}
+\LARGE
+\textbf{Instructions}
+\normalsize
+\rule[1ex]{\textwidth}{.1pt}
+\end{center}
+\noindent
+\begin{enumerate}
+\item This exam has $\numpages$ pages, including the cover sheet. There are $\numquestions$ problems, for a total of $\numpoints$ points. Please ensure no pages are missing.
+\item You will have 50 minutes to complete this exam.  One may use an aproved calculator, but no notes or books are allowed.
+\item Please make the steps you follow clear, and box your final answer.
+\item When you are finished, please check your work carefully.
+\end{enumerate}
+
+\rule[1ex]{\textwidth}{.1pt}
+
+\newpage
+
+\begin{questions}
+
+\question[5]
+Find all antiderivatives of the function $f(x) = \displaystyle\frac{e^{5x}}{3}-\frac{1}{x}$.
+
+\vfill
+
+\question[5] 
+Evaluate the indefinite integral $\displaystyle \int x^2 \sqrt[3]{x}dx$.
+
+\vfill
+
+\newpage
+
+\noaddpoints \question[10] \addpoints
+Given $\displaystyle f(x,y) = x^2-4xy+10x-6y^2$
+\begin{parts}
+  \part[5] Find the point(s) where $f(x,y)$ has possible relative maima or minima.
+  \vfill
+  \part[5] Using the second derivative test, classify the point(s) you find.
+  \vfill
+\end{parts}
+
+\newpage
+
+\question[15] Find the area of the region bounded by $y = \frac{1}{x^2}$, $y=x$ and $y = \frac{x}{8}$ for $x\geq 0$. The following diagram may prove helpful:
+\begin{sagesilent}
+    a(x) =  1 / ( x * x )
+    b(x) = x
+    c(x) = x / 8
+    p = plot(a, xmin = 0.00001, xmax = 3, ymin = 0, ymax = 3) + plot(b, xmin = 0, xmax = 3, color = 'red')+ plot(c, xmin = 0, xmax = 3, color = 'green')
+    p.fontsize(25)
+\end{sagesilent}
+
+\begin{center}
+\sageplot[scale=.3]{p}
+\end{center}
+However, be sure to justify all of your work, including where the fucntions intersect.
+
+\vfill
+
+\end{questions}
+
+\end{document}

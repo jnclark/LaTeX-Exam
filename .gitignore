@@ -1,0 +1,14 @@
+#Avoid Binarys
+*.pdf
+
+##LaTeX Auxiliary files
+*.aux
+*.log
+*.out
+
+##SageTex Aux. Files
+*.sagetex.sage
+*.sagetex.sage.py
+*.sagetex.scmd
+*.sagetex.sout
+sage-plots-for-exam.tex/
