@@ -11,20 +11,29 @@
 \newcommand{\examdate}{THE DATE}
 \newcommand{\examnum}{EXAM NUM}
 \newcommand{\course}{MATH NUM}
-
+%for Draft watermark
+%\newcommand{\isdraft}{x}
+%for compressed spacing (i.e. vfill and newpage removal)
+%\newcommand{\compresseddocument}{x}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %         Draft Watermark           %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newcommand{\isdraft}{x}
 \newcommand{\revisionlevel}{\ifdefined\isdraft
   \begin{tikzpicture}[remember picture,overlay]
-  \node [rotate=60,scale=12,color=red!25,opacity=0.3] at (current page.center)
+  \node [rotate=60,scale=12,color=red!40,opacity=0.4] at (current page.center)
   {\textsf{DRAFT}};
 \end{tikzpicture}
 \else
   \relax
 \fi}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%             Spacing               %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\compressspacing}[1]{\ifdefined\compresseddocument\relax\else#1\fi}
+\newcommand{\elasticvfill}{\compressspacing{\vfill}}
+\newcommand{\elasticnewpage}{\compressspacing{\newpage}}
 
 \begin{document}
 
@@ -41,6 +50,14 @@
 
 \begin{center}
 
+\ifdefined\compresseddocument
+
+{\large Student information goes here, if not compressing spacing.}
+
+\rule[1ex]{\textwidth}{.1pt}
+
+\else
+
 \rule[1ex]{\textwidth}{.1pt}
 
 \vspace{1cm}
@@ -53,19 +70,33 @@
 \vspace{1cm}
 
 \rule[1ex]{\textwidth}{.1pt}
-\vfill
+
+\fi
+
+\elasticvfill
 
 \addpoints
 
 \gradetable[v][questions]
 
-\vfill
+\elasticvfill
 
-\LARGE
-\textbf{Instructions}
-\normalsize
-\rule[1ex]{\textwidth}{.1pt}
 \end{center}
+
+\ifdefined\compresseddocument
+\rule[1ex]{\textwidth}{.1pt}
+\begin{center}
+{\large Exam instructions go here, if not compressing spacing.}
+\end{center}
+\else
+\LARGE
+\begin{center}
+\textbf{Instructions}
+\end{center}
+\normalsize
+
+\rule[1ex]{\textwidth}{.1pt}
+
 \noindent
 \begin{enumerate}
 \item This exam has $\numpages$ pages, including the cover sheet. There are $\numquestions$ problems, for a total of $\numpoints$ points. Please ensure no pages are missing.
@@ -74,34 +105,36 @@
 \item When you are finished, please check your work carefully.
 \end{enumerate}
 
+\fi
+
 \rule[1ex]{\textwidth}{.1pt} 
 
-\newpage
+\elasticnewpage
 
 \begin{questions}
 
 \question[5]
 Find all antiderivatives of the function $f(x) = \displaystyle\frac{e^{5x}}{3}-\frac{1}{x}$.
 
-\vfill
+\elasticvfill
 
 \question[5] 
 Evaluate the indefinite integral $\displaystyle \int x^2 \sqrt[3]{x}dx$.
 
-\vfill
+\elasticvfill
 
-\newpage
+\elasticnewpage
 
 \noaddpoints \question[10] \addpoints
 Given $\displaystyle f(x,y) = x^2-4xy+10x-6y^2$
 \begin{parts}
   \part[5] Find the point(s) where $f(x,y)$ has possible relative maima or minima.
-  \vfill
+  \elasticvfill
   \part[5] Using the second derivative test, classify the point(s) you find.
-  \vfill
+  \elasticvfill
 \end{parts}
 
-\newpage
+\elasticnewpage
 
 \question[15] Find the area of the region bounded by $y = \frac{1}{x^2}$, $y=x$ and $y = \frac{x}{8}$ for $x\geq 0$. The following diagram may prove helpful:
 \begin{sagesilent}
@@ -115,9 +148,9 @@ Given $\displaystyle f(x,y) = x^2-4xy+10x-6y^2$
 \begin{center}
 \sageplot[scale=.3]{p}
 \end{center}
-However, be sure to justify all of your work, including where the fucntions intersect.
+However, be sure to justify all of your work, including where the functions intersect.
 
-\vfill
+\elasticvfill
 
 \end{questions}
 
