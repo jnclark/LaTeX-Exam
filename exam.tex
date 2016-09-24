@@ -32,6 +32,8 @@
 %             Spacing               %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\compressspacing}[1]{\ifdefined\compresseddocument\relax\else#1\fi}
+%use the following elastic variants of vfill and newpage to enable collapsing
+%in the change these variables section above
 \newcommand{\elasticvfill}{\compressspacing{\vfill}}
 \newcommand{\elasticnewpage}{\compressspacing{\newpage}}
 
