@@ -5,6 +5,9 @@
 *.aux
 *.log
 *.out
+*.fdb_latexmk
+*.fls
+
 
 ##SageTex Aux. Files
 *.sagetex.sage
