@@ -1,5 +1,5 @@
 \documentclass[12pt]{exam}
-\usepackage{amsmath,tikz,sagetex}
+\usepackage{amsmath,tikz,sagetex,draftwatermark}
 \usepackage[margin=2cm]{geometry}
 \usepackage[colorlinks=false]{hyperref}
 
@@ -12,12 +12,21 @@
 \newcommand{\examnum}{EXAM NUM}
 \newcommand{\course}{MATH NUM}
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%         Draft Watermark           %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\SetWatermarkText{\textsf{DRAFT}}
+%\SetWatermarkScale{10}
+
+
 \begin{document}
 
 \pagestyle{headandfoot}
 \header{\course}{\examnum}{\examdate}
 \firstpageheadrule
 \runningheadrule
+\firstpageheader{\large \course}{\large \examnum}{\large \examdate}
 \firstpagefooter{}{}{}
 \runningfooter{}{}{\thepage\ of \numpages}
 
