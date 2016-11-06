@@ -7,6 +7,7 @@
 *.out
 *.fdb_latexmk
 *.fls
+*.synctex.gz
 
 
 ##SageTex Aux. Files
